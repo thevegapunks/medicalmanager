@@ -1,17 +1,20 @@
-package org.dgdev.gestionpatient.entities;
+package org.dgdev.gestionpatient.dto;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.dgdev.gestionpatient.entities.Patient;
 import org.dgdev.gestionpatient.enums.FamilySituation;
 
 import java.time.LocalDate;
-
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Patient {
+public class PatientDto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idPatient;
@@ -25,4 +28,9 @@ public class Patient {
     private String email;
     private String phone;
     private FamilySituation familySituation;
+
+
+    public static PatientDto toPatientDto(Patient patient){
+        return null;
+    }
 }

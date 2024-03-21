@@ -1,6 +1,6 @@
 package org.dgdev.gestionpatient.enums;
 
-public enum CabinetSpeciality {
+public enum CabinetMedicalSpeciality {
     GENERAL_MEDICINE,
     PEDIATRICS,
     CARDIOLOGY,

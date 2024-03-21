@@ -1,8 +1,9 @@
 package org.dgdev.gestionpatient.controllers;
 
-import org.dgdev.gestionpatient.entities.Patient;
+import org.dgdev.gestionpatient.model.dto.PatientDetailsDto;
+import org.dgdev.gestionpatient.model.dto.PatientDto;
+import org.dgdev.gestionpatient.model.entities.Patient;
 import org.dgdev.gestionpatient.services.PatientService;
-import org.dgdev.gestionpatient.services.serviceImpl.PatientServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,8 +25,12 @@ public class PatientController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Patient> findPatientById(@PathVariable Long id) {
+    public PatientDto findPatientById(@PathVariable Long id) {
         return patientService.findPatientById(id);
+    }
+    @GetMapping("/findPatienDetailstById/{id}")
+    public PatientDetailsDto findPatienDetailstById(@PathVariable Long id) {
+        return patientService.findPatientDetailsById(id);
     }
 
     @GetMapping("/getPatientByCin/{cin}")

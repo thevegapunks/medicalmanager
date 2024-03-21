@@ -18,7 +18,9 @@ public class Cabinet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCabinet;
-    @OneToMany
+    @ManyToMany
+    private List<MedicalStaff> medicalStaffs;
+    @ManyToMany
     private List<Patient> patients;
     private String cabinetNumber;
     private String name;

@@ -28,8 +28,8 @@ public class PatientController {
     public PatientDto findPatientById(@PathVariable Long id) {
         return patientService.findPatientById(id);
     }
-    @GetMapping("/findPatienDetailstById/{id}")
-    public PatientDetailsDto findPatienDetailstById(@PathVariable Long id) {
+    @GetMapping("/findPatientDetailstById/{id}")
+    public PatientDetailsDto findPatientDetailstById(@PathVariable Long id) {
         return patientService.findPatientDetailsById(id);
     }
 

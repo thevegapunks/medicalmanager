@@ -1,31 +1,29 @@
 package org.dgdev.gestionpatient.model.entities;
 
 import jakarta.persistence.*;
-import lombok.*;
-import org.dgdev.gestionpatient.enums.FamilySituation;
-
-
-import java.time.LocalDate;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
+import org.dgdev.gestionpatient.enums.StaffRole;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class Patient {
+public class MedicalStaff {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idPatient;
+    private Long id;
     private String firstName;
     private String lastName;
     @Column(unique = true)
     private String cin;
-    private String insuranceNumber;
-    private LocalDate dateOfBirth;
     private String address;
     private String email;
     private String phone;
     @Enumerated(EnumType.STRING)
-    private FamilySituation familySituation;
+    private StaffRole staffRole;
+
 }

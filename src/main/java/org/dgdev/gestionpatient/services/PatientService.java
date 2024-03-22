@@ -9,6 +9,7 @@ import java.util.Optional;
 
 public interface PatientService {
     Patient savePatient(Patient patient);
+    Patient updatePatient(Patient Updatepatient);
     PatientDto findPatientById(Long id);
     PatientDetailsDto findPatientDetailsById(Long id);
     Optional<Patient> findPatientByCin(String cin);

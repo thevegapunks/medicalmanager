@@ -32,6 +32,24 @@ public class PatientServiceImpl implements PatientService {
     }
 
     @Override
+    public Patient updatePatient(Patient Updatepatient) {
+        Patient patient = patientRepository.findById(Updatepatient.getIdPatient()).orElse(null);
+        if (patient != null){
+            patient.setAddress(Updatepatient.getAddress());
+            patient.setCin(Updatepatient.getCin());
+            patient.setEmail(Updatepatient.getEmail());
+            patient.setPhone(Updatepatient.getPhone());
+            patient.setDateOfBirth(Updatepatient.getDateOfBirth());
+            patient.setFamilySituation(Updatepatient.getFamilySituation());
+            patient.setFirstName(Updatepatient.getFirstName());
+            patient.setLastName(Updatepatient.getLastName());
+            patient.setInsuranceNumber(Updatepatient.getInsuranceNumber());
+            return patientRepository.save(patient);
+        }
+        return null;
+    }
+
+    @Override
     public PatientDto findPatientById(Long id) {
         Patient patient = this.patientRepository.findById(id).get();
         return this.patientMapper.toDto(patient);

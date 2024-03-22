@@ -3,6 +3,7 @@ package org.dgdev.gestionpatient.services.serviceImpl;
 
 import org.dgdev.gestionpatient.model.dto.CabinetDto;
 import org.dgdev.gestionpatient.model.entities.Cabinet;
+import org.dgdev.gestionpatient.model.entities.Patient;
 import org.dgdev.gestionpatient.model.mappers.CabinetMapper;
 import org.dgdev.gestionpatient.repositories.CabinetRepository;
 import org.dgdev.gestionpatient.services.CabinetService;
@@ -35,7 +36,22 @@ public class CabinetServiceImpl implements CabinetService {
         Cabinet cabinet = this.cabinetRepository.findByCabinetNumber(cabinetNumber);
         return this.cabinetMapper.toDto(cabinet);
     }
-
+    @Override
+    public Cabinet updateCabinet(Cabinet updateCabinet) {
+        Cabinet cabinet = cabinetRepository.findById(updateCabinet.getIdCabinet()).orElse(null);
+        if (cabinet != null){
+            cabinet.setCabinetNumber(updateCabinet.getCabinetNumber());
+            cabinet.setCabinetMedicalSpeciality(updateCabinet.getCabinetMedicalSpeciality());
+            cabinet.setAddress(updateCabinet.getAddress());
+            cabinet.setEmail(updateCabinet.getEmail());
+            cabinet.setPhone(updateCabinet.getPhone());
+            cabinet.setName(updateCabinet.getName());
+            cabinet.setMedicalStaffs(updateCabinet.getMedicalStaffs());
+            cabinet.setPatients(updateCabinet.getPatients());
+            return cabinetRepository.save(cabinet);
+        }
+        return null;
+    }
     @Override
     public List<Cabinet> getAllCabinets() {
         return cabinetRepository.findAll();

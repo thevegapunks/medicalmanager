@@ -2,6 +2,7 @@ package org.dgdev.gestionpatient.services;
 
 import org.dgdev.gestionpatient.model.dto.CabinetDto;
 import org.dgdev.gestionpatient.model.entities.Cabinet;
+import org.dgdev.gestionpatient.model.entities.MedicalStaff;
 
 
 import java.util.List;
@@ -12,4 +13,5 @@ public interface CabinetService {
     CabinetDto findCabinetByCabinetNumber (String cabinetNumber);
     List<Cabinet> getAllCabinets();
     void deleteCabinetById(Long idCabinet);
+    Cabinet updateCabinet(Cabinet UpdateCabinet);
 }

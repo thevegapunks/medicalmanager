@@ -1,5 +1,6 @@
 package org.dgdev.gestionpatient.controllers;
 
+import jakarta.persistence.PostUpdate;
 import org.dgdev.gestionpatient.model.dto.PatientDetailsDto;
 import org.dgdev.gestionpatient.model.dto.PatientDto;
 import org.dgdev.gestionpatient.model.entities.Patient;
@@ -22,6 +23,11 @@ public class PatientController {
     @PostMapping
     public Patient savePatient(@RequestBody Patient patient) {
         return patientService.savePatient(patient);
+    }
+
+    @PostUpdate
+    public Patient updatePatient(@RequestBody Patient Updatepatient) {
+        return patientService.updatePatient(Updatepatient);
     }
 
     @GetMapping("/{id}")

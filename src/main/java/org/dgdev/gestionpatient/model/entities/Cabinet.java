@@ -18,10 +18,6 @@ public class Cabinet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCabinet;
-    @ManyToMany
-    private List<MedicalStaff> medicalStaffs;
-    @ManyToMany
-    private List<Patient> patients;
     private String cabinetNumber;
     private String name;
     @Enumerated(EnumType.STRING)
@@ -29,4 +25,8 @@ public class Cabinet {
     private String address;
     private String email;
     private String phone;
+    @ManyToMany
+    private List<MedicalStaff> medicalStaffs;
+    @ManyToMany
+    private List<Patient> patients;
 }

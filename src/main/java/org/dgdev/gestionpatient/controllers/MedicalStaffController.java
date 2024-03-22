@@ -1,8 +1,10 @@
 package org.dgdev.gestionpatient.controllers;
 
 
+import jakarta.persistence.PostUpdate;
 import org.dgdev.gestionpatient.model.dto.MedicalStaffDto;
 import org.dgdev.gestionpatient.model.entities.MedicalStaff;
+import org.dgdev.gestionpatient.model.entities.Patient;
 import org.dgdev.gestionpatient.services.MedicalStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,10 @@ public class MedicalStaffController {
     @PostMapping
     public MedicalStaff saveMedicalStaff(@RequestBody MedicalStaff medicalStaff) {
         return medicalStaffService.saveMedicalStaff(medicalStaff);
+    }
+    @PostUpdate
+    public MedicalStaff updateMedicalStaff(@RequestBody MedicalStaff updateMedicalStaff) {
+        return medicalStaffService.updateMedicalStaff(updateMedicalStaff);
     }
     @GetMapping
     public List<MedicalStaff> getAllMedicalStaffs() {

@@ -28,6 +28,21 @@ public class MedicalStaffServiceImpl implements MedicalStaffService {
         return medicalStaffRepository.save(medicalStaff);
     }
     @Override
+    public MedicalStaff updateMedicalStaff(MedicalStaff UpdateMedicalStaff) {
+        MedicalStaff medicalStaff = medicalStaffRepository.findById(UpdateMedicalStaff.getId()).orElse(null);
+        if (medicalStaff != null){
+            medicalStaff.setStaffRole(UpdateMedicalStaff.getStaffRole());
+            medicalStaff.setAddress(UpdateMedicalStaff.getAddress());
+            medicalStaff.setCin(UpdateMedicalStaff.getCin());
+            medicalStaff.setEmail(UpdateMedicalStaff.getEmail());
+            medicalStaff.setPhone(UpdateMedicalStaff.getPhone());
+            medicalStaff.setFirstName(UpdateMedicalStaff.getFirstName());
+            medicalStaff.setLastName(UpdateMedicalStaff.getLastName());
+            return medicalStaffRepository.save(medicalStaff);
+        }
+        return null;
+    }
+    @Override
     public List<MedicalStaff> getAllMedicalStaffs() {
         return medicalStaffRepository.findAll();
     }

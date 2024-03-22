@@ -1,8 +1,10 @@
 package org.dgdev.gestionpatient.controllers;
 
 
+import jakarta.persistence.PostUpdate;
 import org.dgdev.gestionpatient.model.dto.CabinetDto;
 import org.dgdev.gestionpatient.model.entities.Cabinet;
+import org.dgdev.gestionpatient.model.entities.MedicalStaff;
 import org.dgdev.gestionpatient.model.entities.Patient;
 import org.dgdev.gestionpatient.services.CabinetService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +31,11 @@ public class CabinetController {
     @PostMapping
     public Cabinet saveCabinet(@RequestBody Cabinet cabinet) {
         return cabinetService.saveCabinet(cabinet);
+    }
+
+    @PostUpdate
+    public Cabinet updateCabinet(@RequestBody Cabinet updateCabinet) {
+        return cabinetService.updateCabinet(updateCabinet);
     }
     @DeleteMapping("deleteCabinetById/{idCabinet}")
     public void deleteCabinetById(@PathVariable Long idCabinet) {
